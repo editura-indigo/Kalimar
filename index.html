@@ -1,2 +1,190 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sponsori — Kalimar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<h1>Hello</h1>
+    body {
+      background: #fff;
+      color: #000;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      max-width: 640px;
+      padding: 72px 32px 36px;
+      text-align: center;
+      border-bottom: 2px solid #000;
+    }
+
+    .book-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3rem, 10vw, 5rem);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      margin-top: 12px;
+      color: #444;
+    }
+
+    .intro {
+      max-width: 560px;
+      padding: 40px 32px;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.9;
+      font-style: italic;
+      color: #222;
+    }
+
+    .section-label {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #000;
+    }
+
+    .sponsors-section {
+      width: 100%;
+      max-width: 640px;
+      padding: 0 32px 72px;
+    }
+
+    .sponsors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      border: 1px solid #000;
+    }
+
+    .sponsor-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 32px 20px;
+      border-right: 1px solid #000;
+      background: #fff;
+    }
+
+    .sponsor-card:last-child {
+      border-right: none;
+    }
+
+    .sponsor-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.85;
+    }
+
+    .sponsor-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    .sponsor-link {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.82rem;
+      color: #555;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .sponsor-link:hover {
+      color: #000;
+      border-color: #000;
+    }
+
+    footer {
+      width: 100%;
+      max-width: 640px;
+      border-top: 1px solid #000;
+      padding: 24px 32px;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .footer-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="book-title">Kalimar</div>
+    <div class="subtitle">Sponsorii acestei cărți</div>
+  </header>
+
+  <p class="intro">
+    Această carte a luat naștere cu sprijinul oamenilor și organizațiilor de mai jos.
+    Le mulțumim pentru că au făcut posibilă apariția ei.
+  </p>
+
+  <section class="sponsors-section">
+    <div class="section-label">Cu sprijinul</div>
+
+    <div class="sponsors-grid">
+
+      <div class="sponsor-card">
+        <img class="sponsor-logo" src="sponsor-placeholder.png" alt="Sponsor 1" />
+        <span class="sponsor-name">Sponsor 1</span>
+        <a class="sponsor-link" href="https://sponsor1.ro" target="_blank">sponsor1.ro</a>
+      </div>
+
+      <div class="sponsor-card">
+        <img class="sponsor-logo" src="sponsor-placeholder.png" alt="Sponsor 2" />
+        <span class="sponsor-name">Sponsor 2</span>
+        <a class="sponsor-link" href="https://sponsor2.ro" target="_blank">sponsor2.ro</a>
+      </div>
+
+      <div class="sponsor-card">
+        <img class="sponsor-logo" src="sponsor-placeholder.png" alt="Sponsor 3" />
+        <span class="sponsor-name">Sponsor 3</span>
+        <a class="sponsor-link" href="https://sponsor3.ro" target="_blank">sponsor3.ro</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-text">© Kalimar — toate drepturile rezervate</p>
+  </footer>
+
+</body>
+</html>
