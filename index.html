@@ -6,17 +6,13 @@
   <title>Sponsori — Kalimar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #fff;
-      color: #000;
+      background: #080808;
+      color: #e8e2d9;
       font-family: 'Cormorant Garamond', Georgia, serif;
       min-height: 100vh;
       display: flex;
@@ -24,132 +20,209 @@
       align-items: center;
     }
 
-    header {
+    /* ── HERO ── */
+    .hero {
       width: 100%;
-      max-width: 640px;
-      padding: 72px 32px 36px;
-      text-align: center;
-      border-bottom: 2px solid #000;
+      max-width: 700px;
+      padding: 64px 32px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
     }
 
-    .book-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(3rem, 10vw, 5rem);
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      line-height: 1;
+    /* Cover image — faded, behind everything */
+    .cover-wrap {
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto 0;
+      position: relative;
     }
 
-    .subtitle {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-style: italic;
-      font-size: 1rem;
-      letter-spacing: 0.12em;
-      margin-top: 12px;
-      color: #444;
+    .cover-img {
+      width: 100%;
+      display: block;
+      border: 1px solid #2a2a2a;
+      filter: grayscale(40%) contrast(1.1);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
     }
 
-    .intro {
+    /* Kalimar logo over fade */
+    .logo-wrap {
+      width: 100%;
+      max-width: 420px;
+      margin: -40px auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-img {
+      width: 100%;
+      display: block;
+      /* invert because the logo is dark-on-black; flip to white-on-transparent */
+      filter: invert(1) contrast(1.2);
+    }
+
+    /* ── DIVIDER ── */
+    .rule {
+      width: 100%;
       max-width: 560px;
-      padding: 40px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 32px;
+      margin: 8px 0 40px;
+    }
+
+    .rule-line { flex: 1; height: 1px; background: #333; }
+    .rule-diamond {
+      width: 5px; height: 5px;
+      background: #888;
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      max-width: 520px;
+      padding: 0 32px;
       text-align: center;
       font-size: 1.1rem;
-      line-height: 1.9;
+      line-height: 1.95;
       font-style: italic;
-      color: #222;
+      color: #b0a898;
+    }
+
+    /* ── SPONSORS ── */
+    .sponsors-section {
+      width: 100%;
+      max-width: 700px;
+      padding: 56px 32px 24px;
     }
 
     .section-label {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.28em;
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
+      color: #555;
       text-align: center;
-      margin-bottom: 40px;
-      color: #000;
-    }
-
-    .sponsors-section {
-      width: 100%;
-      max-width: 640px;
-      padding: 0 32px 72px;
+      margin-bottom: 36px;
     }
 
     .sponsors-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      border: 1px solid #000;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1px;
+      background: #1e1e1e;
+      border: 1px solid #1e1e1e;
     }
 
     .sponsor-card {
+      background: #0e0e0e;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-      padding: 32px 20px;
-      border-right: 1px solid #000;
-      background: #fff;
+      gap: 14px;
+      padding: 36px 20px;
+      transition: background 0.2s;
     }
 
-    .sponsor-card:last-child {
-      border-right: none;
-    }
+    .sponsor-card:hover { background: #141414; }
 
     .sponsor-logo {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       object-fit: contain;
-      filter: grayscale(100%);
-      opacity: 0.85;
+      filter: grayscale(100%) brightness(1.8) contrast(0.8);
+      opacity: 0.7;
+      transition: opacity 0.2s;
     }
 
+    .sponsor-card:hover .sponsor-logo { opacity: 1; }
+
     .sponsor-name {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.06em;
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: #c8c0b0;
       text-align: center;
     }
 
     .sponsor-link {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: #555;
       text-decoration: none;
-      border-bottom: 1px solid #ccc;
-      transition: border-color 0.2s, color 0.2s;
+      border-bottom: 1px solid #2a2a2a;
+      transition: color 0.2s, border-color 0.2s;
     }
 
-    .sponsor-link:hover {
-      color: #000;
-      border-color: #000;
-    }
+    .sponsor-link:hover { color: #a09080; border-color: #555; }
 
-    footer {
+    /* ── PUBLISHER ── */
+    .publisher {
       width: 100%;
-      max-width: 640px;
-      border-top: 1px solid #000;
-      padding: 24px 32px;
-      text-align: center;
-      margin-top: auto;
+      max-width: 700px;
+      padding: 48px 32px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border-top: 1px solid #1a1a1a;
+      margin-top: 40px;
     }
 
-    .footer-text {
+    .publisher-label {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #444;
+    }
+
+    .publisher-logo {
+      width: 140px;
+      object-fit: contain;
+      /* INDIGO logo is dark-on-black; invert to show on dark bg */
+      filter: invert(1) brightness(0.7);
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .publisher-logo:hover { opacity: 0.9; }
+
+    .copyright {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
-      font-size: 0.82rem;
-      letter-spacing: 0.06em;
-      color: #777;
+      font-size: 0.78rem;
+      color: #333;
+      letter-spacing: 0.05em;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="book-title">Kalimar</div>
-    <div class="subtitle">Sponsorii acestei cărți</div>
-  </header>
+  <div class="hero">
+    <!-- Coperta cărții — faded în jos -->
+    <div class="cover-wrap">
+      <img class="cover-img" src="cover.jpg" alt="Kalimar" />
+    </div>
+    <!-- Logo Kalimar peste fade -->
+    <div class="logo-wrap">
+      <img class="logo-img" src="kalimar-logo.png" alt="Kalimar" />
+    </div>
+  </div>
+
+  <div class="rule">
+    <div class="rule-line"></div>
+    <div class="rule-diamond"></div>
+    <div class="rule-diamond"></div>
+    <div class="rule-diamond"></div>
+    <div class="rule-line"></div>
+  </div>
 
   <p class="intro">
     Această carte a luat naștere cu sprijinul oamenilor și organizațiilor de mai jos.
@@ -158,9 +231,9 @@
 
   <section class="sponsors-section">
     <div class="section-label">Cu sprijinul</div>
-
     <div class="sponsors-grid">
 
+      <!-- SPONSOR 1 — înlocuiește src, name și href -->
       <div class="sponsor-card">
         <img class="sponsor-logo" src="sponsor-placeholder.png" alt="Sponsor 1" />
         <span class="sponsor-name">Sponsor 1</span>
@@ -182,9 +255,12 @@
     </div>
   </section>
 
-  <footer>
-    <p class="footer-text">© Kalimar — toate drepturile rezervate</p>
-  </footer>
+  <!-- INDIGO Publishing -->
+  <div class="publisher">
+    <span class="publisher-label">Publicat de</span>
+    <img class="publisher-logo" src="indigo-logo.png" alt="Indigo Publishing" />
+    <p class="copyright">© Kalimar — toate drepturile rezervate</p>
+  </div>
 
 </body>
 </html>
